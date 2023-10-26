@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .contact-details-container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: left; /* Left align the content */
+        }
+
+        .contact-details-container p {
+            margin-bottom: 10px; /* Add some space below paragraphs */
+        }
+
+        .contact-details-container strong {
+            font-weight: bold;
+        }
+
+        .contact-details-container a {
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px; /* Add some space above the links */
+        }
+
+        .contact-details-container a.edit-button {
+            background-color: #007BFF;
+            color: #fff;
+            margin-right: 10px; /* Add some space between the buttons */
+        }
+
+        .contact-details-container a.delete-button {
+            background-color: #DC3545;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contact Details</h1>
+    <div class="contact-details-container">
+        <p><strong>Name:</strong> {{ contact.name }}</p>
+        <p><strong>Address:</strong> {{ contact.address }}</p>
+        <p><strong>Profession 1:</strong> {{ contact.profession1 }}</p>
+        <p><strong>Profession 2:</strong> {{ contact.profession2 }}</p>
+        <p><strong>Telephone Number:</strong> {{ contact.telnumber }}</p>
+        <p><strong>Email:</strong> {{ contact.email }}</p>
+        <a href="{% url 'contact_update' pk=contact.pk %}" class="edit-button">Edit</a>
+        <a href="{% url 'contact_delete' pk=contact.pk %}" class="delete-button">Delete</a>
+    </div>
+</body>
+</html>

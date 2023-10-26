@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create New Contact</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .create-contact-form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: left; /* Left align the form elements */
+        }
+
+        .create-contact-form label {
+            display: block; /* Make labels block elements for spacing */
+            margin-bottom: 8px; /* Add some space below labels */
+        }
+
+        .create-contact-form input,
+        .create-contact-form textarea {
+            width: calc(100% - 20px); /* Adjusted width with some spacing */
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            display: block; /* Make inputs block elements for spacing */
+        }
+
+        .create-contact-form button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .create-contact-form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create New Contact</h1>
+    <form class="create-contact-form" method="post">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" rows="4" required></textarea>
+
+        <label for="profession1">Profession:</label>
+        <input type="text" id="profession1" name="profession1" required>
+
+        <label for="profession2">Profession:</label>
+        <input type="text" id="profession2" name="profession2" required>
+
+        <label for="telnumber">Telephone Number:</label>
+        <input type="tel" id="telnumber" name="telnumber" required>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+
+        <button type="submit">Create Contact</button>
+    </form>
+</body>
+</html>

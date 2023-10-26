@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Contact</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .edit-contact-container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: left; /* Left align the content */
+        }
+
+        .edit-contact-container label {
+            display: block; /* Make labels block elements for spacing */
+            margin-bottom: 8px; /* Add some space below labels */
+        }
+
+        .edit-contact-container input {
+            width: calc(100% - 20px); /* Adjusted width with some spacing */
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            display: block; /* Make inputs block elements for spacing */
+        }
+
+        .edit-contact-container input[type="submit"] {
+            background-color: #28A745;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px; /* Add some space above the submit button */
+        }
+
+        .edit-contact-container input[type="submit"]:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h1>Edit Contact</h1>
+    <div class="edit-contact-container">
+        <form method="post">
+            {% csrf_token %}
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="{{ contact.name }}" required>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" value="{{ contact.address }}" required>
+
+            <label for="profession1">Profession 1:</label>
+            <input type="text" id="profession1" name="profession1" value="{{ contact.profession1 }}" required>
+
+            <label for="profession2">Profession 2:</label>
+            <input type="text" id="profession2" name="profession2" value="{{ contact.profession2 }}" required>   
+
+            <label for="telnumber">Telephone Number:</label>
+            <input type="text" id="telnumber" name="telnumber" value="{{ contact.telnumber }}" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="{{ contact.email }}" required>
+
+            <input type="submit" value="Save Changes">
+        </form>
+    </div>
+</body>
+</html>
